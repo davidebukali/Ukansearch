@@ -1,0 +1,1 @@
+Ukansearch currently allows searching by tags through datasets on the www.data.ug portal. We welcome voulunteers to develop new features; top on the list are paging for large dataset lists and selecting a ckan instance to obtain datasets. 
