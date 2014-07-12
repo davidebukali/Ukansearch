@@ -9,7 +9,6 @@ getTagname: function(q){
     };
   
   $.ajax({
-    //url: localStorage.appurl+"package_search?q="+q+"&rows=10",
     url: "http://catalog.data.ug/api/3/action/package_search",
     type: "post",
     dataType: 'json',
@@ -27,7 +26,7 @@ getTagname: function(q){
   return d;
 },
 
-//onOnline event handler
+//phonegap onOnline event handler
 checkOnline: function () {
   var d = $.Deferred();
   return d;
