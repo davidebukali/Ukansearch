@@ -27,7 +27,7 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-      document.addEventListener('deviceready', this.onDeviceReady, false);
+      //document.addEventListener('deviceready', this.onDeviceReady, false);
 
       $("#start_search").bind('click', function(){
         ckanrequest.checkOnline().then(function(){
@@ -38,29 +38,30 @@ var app = {
             
             ckanrequest.loadingMsg("Please wait ... ", 0);
             
-            ckanrequest.getTagname().then(function(data){
+            ckanrequest.getTagname($("#search_tags").val()).then(function(data){
               $.unblockUI();
               if(data['result']['results'].length > 0){
                 for(var x in data['result']['results']) {
 
-                  for(var y in data['result']['results'][x]['resources']){
-                    if(data['result']['results'][x]['resources'] != undefined){
-                      var li = $("<li></li>");
-                      var a = $("<a href='#' id='' onclick=''></a>");
-                      var h1 = $("<h1 class='heada1' style='white-space:normal;'>" + data['result']['results'][x]['resources'][y]['name'] + "</h1>");
-                      var p = $("<p class='para1'>Format: " + data['result']['results'][x]['resources'][y]['format'] + "</p>");
-
-                      a.append(h1);
-                      a.append(p);
-                      li.append(a);
-                      ckanlist.append(li);
-
-                    }  
+                  var li = $("<li></li>");
+                  var a = $("<a href='#' id='' onclick=''></a>");
+                  var h1 = $("<h1 class='heada1' style='white-space:normal;'>" + data['result']['results'][x]['title'] + "</h1>");
+                  
+                  if(data['result']['results'][x]['notes'] == null){
+                    var p0 = $("<p class='para' style='white-space:normal;'></p>");
+                  }else{
+                    var p0 = $("<p class='para' style='white-space:normal;'>" + data['result']['results'][x]['notes'] + "</p>");  
                   }
+                  
+                  a.append(h1);
+                  a.append(p0);
+
+                  li.append(a);
+                  ckanlist.append(li);
 
                 }
                 ckanlist.listview().listview('refresh');
-                $.mobile.changePage("#page_search_results", "slide", true, false);
+                //$.mobile.changePage("#page_search_results", "slide", true, false);
               }else{
                 ckanrequest.loadingMsg("No results for "+$("#search_tags").val(), 0);
               }
@@ -83,11 +84,11 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-      app.receivedEvent('deviceready');
+      //app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
 
-      console.log('Received Event: ' + id);
+      //console.log('Received Event: ' + id);
     }
 };
