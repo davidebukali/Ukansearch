@@ -30,7 +30,10 @@ getTagname: function(q){
 //onOnline event handler
 checkOnline: function () {
   var d = $.Deferred();
+  return d;
 
+  // TODO figure how try catch works
+  try {
   var networkState = navigator.connection.type;
 
   var states = {};
@@ -43,6 +46,11 @@ checkOnline: function () {
   states[Connection.CELL] = 'Cell generic connection';
   states[Connection.NONE] = 'No network connection';
 
+  }catch(err) 
+  {
+    return d;
+  }
+  
   if ((states[networkState] == 'No network connection') || (states[networkState] == 'Unknown connection')) {
     d.reject();
   } else {

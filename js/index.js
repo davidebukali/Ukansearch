@@ -30,7 +30,8 @@ var app = {
       //document.addEventListener('deviceready', this.onDeviceReady, false);
 
       $("#start_search").bind('click', function(){
-        ckanrequest.checkOnline().then(function(){
+        //TODO 
+	//ckanrequest.checkOnline().then(function(){
 
           if($("#search_tags").val().length > 0){
             var ckanlist =  $("#searchresults");
@@ -71,10 +72,10 @@ var app = {
             ckanrequest.loadingMsg("Enter Tags to Search", 3000);
           }
 
-        }).fail(function(){
+        //}).fail(function(){
 
-          ckanrequest.loadingMsg("Please connect to the internet to Search for Datasets", 3000);
-        });
+          //ckanrequest.loadingMsg("Please connect to the internet to Search for Datasets", 3000);
+        //});
         
       });
 
