@@ -10,14 +10,19 @@
 
 <link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css" />
 <link rel="stylesheet" href="css/jquery.mobile.theme-1.4.0.min.css" />
+<link rel="stylesheet" href="css/chosen.css" />
 <link rel="stylesheet" href="libs/FontAwesome/css/font-awesome.min.css">
 <title>Ukan Search</title>
 </head>
 <body>
+
   <!-- Search Page  -->
   <div data-role="page" id="page_search">
     <div data-role="header">
 
+    <a href="#page_urls" class="ui-btn-left" data-role="button"
+        id="" data-rel="dialog" data-iconpos="notext"><i class="fa fa-bars fa-lg"></i></a>
+        
       <h1 title="ukan">UkanSearch</h1>
     </div>
     <!-- /header -->
@@ -25,7 +30,7 @@
     <div data-role="content" class='content'>
       
         <label for="search_tags">Enter keywords to search:</label> <input
-          type="text" id="search_tags" placeholder="Search by Tags" /> <br>
+          type="text" id="search_tags" placeholder="Search by Tags" />
         <div id='searchdiv'>
           <button type="button" data-theme="a" id="start_search">GO</button>
         </div>
@@ -40,11 +45,45 @@
   </div>
   <!-- /page -->
   
+  
+<!-- Select dataset url  -->
+  <div data-role="page" id="page_urls">
+    <div data-role="header">
+        
+      <h1 title="ukan">UkanSearch Urls</h1>
+    </div>
+    <!-- /header -->
+
+    <div data-role="content" class='content'>
+     <form>
+
+        <input type="url" id="url_inputs" placeholder="Start with http://" />
+        
+        <select class="urlselect" data-role="none">
+        <option value="select">Select URL</option>
+        <option value="ug">UGANDA</option>
+        
+        <option value="uk">UK</option>
+        <option value="usa">USA</option>
+        
+        </select>
+        <div id='searchdiv'>
+          <button type="button" data-theme="a" id="set_url">Save</button>
+        </div>
+
+     </form>
+    </div>
+    <!-- /content -->
+
+  </div>
+  <!-- /page -->
+  
   <script src="libs/jquery-1.7.2.min.js"></script>
 
   <script type="text/javascript" src="js/index.js"></script>
   <script src="libs/jquery.mobile-1.4.0.min.js"></script>
  <script src="libs/jquery.blockUI.js"></script>
+ <script src="libs/chosen.jquery.js"></script>
  
  <script src="js/ckanrequests.js"></script>
  <script src="js/controller.js"></script>

@@ -9,7 +9,7 @@ getTagname: function(q){
     };
   
   $.ajax({
-    url: "http://catalog.data.ug/api/3/action/package_search",
+    url: localStorage.appurl+"/api/3/action/package_search",
     type: "post",
     dataType: 'json',
     data: JSON.stringify(pack),
@@ -18,7 +18,6 @@ getTagname: function(q){
       d.reject();
     },
     success: function (results) {
-      
       d.resolve(results);
     }
   });
