@@ -1,0 +1,13 @@
+{
+  "name": "Ukansearch",
+  "description": "Uganda Datasets in the palm of your hand",
+  "launch_path": "/index.html",
+  "icons": {
+    "": ""
+  },
+  "developer": {
+    "name": "Ukansearch",
+    "url": "http://mountbatten.net/"
+  },
+  "default_locale": "en"
+} 
