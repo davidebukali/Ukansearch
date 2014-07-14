@@ -9,7 +9,8 @@ getTagname: function(q){
     };
   
   $.ajax({
-    url: localStorage.appurl+"/api/3/action/package_search",
+    //url: localStorage.appurl+"package_search?q="+q+"&rows=10",
+    url: "http://catalog.data.ug/api/3/action/package_search",
     type: "post",
     dataType: 'json',
     data: JSON.stringify(pack),
@@ -18,6 +19,7 @@ getTagname: function(q){
       d.reject();
     },
     success: function (results) {
+      
       d.resolve(results);
     }
   });
@@ -25,13 +27,10 @@ getTagname: function(q){
   return d;
 },
 
-//phonegap onOnline event handler
+//onOnline event handler
 checkOnline: function () {
   var d = $.Deferred();
-  return d;
 
-  // TODO figure how try catch works
-  try {
   var networkState = navigator.connection.type;
 
   var states = {};
@@ -44,11 +43,6 @@ checkOnline: function () {
   states[Connection.CELL] = 'Cell generic connection';
   states[Connection.NONE] = 'No network connection';
 
-  }catch(err) 
-  {
-    return d;
-  }
-  
   if ((states[networkState] == 'No network connection') || (states[networkState] == 'Unknown connection')) {
     d.reject();
   } else {
