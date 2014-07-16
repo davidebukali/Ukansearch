@@ -7,10 +7,11 @@ getTagname: function(q){
       "rows": 10,
       "q": q
     };
+
+    console.log("using "+localStorage.appurl);
   
   $.ajax({
-    //url: localStorage.appurl+"package_search?q="+q+"&rows=10",
-    url: "http://catalog.data.ug/api/3/action/package_search",
+    url: localStorage.appurl+"/api/3/action/package_search",
     type: "post",
     dataType: 'json',
     data: JSON.stringify(pack),
@@ -19,7 +20,6 @@ getTagname: function(q){
       d.reject();
     },
     success: function (results) {
-      
       d.resolve(results);
     }
   });
@@ -27,10 +27,31 @@ getTagname: function(q){
   return d;
 },
 
-//onOnline event handler
+checkUrl: function(){
+  var d = $.Deferred();
+  
+  $.ajax({
+    url: localStorage.appurl+"/api/3",
+    type: "get",
+    error:function (jqXHR, textStatus, errorThrown) {
+
+      d.reject();
+    },
+    success: function (results) {
+      d.resolve(results);
+    }
+  });
+
+  return d;
+},
+
+//phonegap onOnline event handler
 checkOnline: function () {
   var d = $.Deferred();
+  return d;
 
+  // TODO figure how try catch works
+  try {
   var networkState = navigator.connection.type;
 
   var states = {};
@@ -43,6 +64,11 @@ checkOnline: function () {
   states[Connection.CELL] = 'Cell generic connection';
   states[Connection.NONE] = 'No network connection';
 
+  }catch(err) 
+  {
+    return d;
+  }
+  
   if ((states[networkState] == 'No network connection') || (states[networkState] == 'Unknown connection')) {
     d.reject();
   } else {

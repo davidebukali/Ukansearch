@@ -4,8 +4,6 @@ loadList: function(){
 var ckanlist =  $("#searchresults");
             ckanlist.empty();
             
-            ckanrequest.loadingMsg("Please wait ... ", 0);
-            
             ckanrequest.getTagname($("#search_tags").val()).then(function(data){
               $.unblockUI();
               if(data['result']['results'].length > 0){
