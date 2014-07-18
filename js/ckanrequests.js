@@ -44,13 +44,12 @@ var ckanrequest = {
     //phonegap onOnline event handler
     checkOnline: function() {
         var d = $.Deferred();
-        return d;
+        // return d;
 
+        var networkState = navigator.connection.type;
+        var states = {};
         // TODO figure how try catch works
         try {
-            var networkState = navigator.connection.type;
-
-            var states = {};
             states[Connection.UNKNOWN] = 'Unknown connection';
             states[Connection.ETHERNET] = 'Ethernet connection';
             states[Connection.WIFI] = 'WiFi connection';
@@ -63,8 +62,8 @@ var ckanrequest = {
             return d;
         }
 
-        if ((states[networkState] == 'No network connection') ||
-                (states[networkState] == 'Unknown connection')) {
+        if ((states[networkState] === 'No network connection') ||
+                (states[networkState] === 'Unknown connection')) {
             d.reject();
         } else {
             d.resolve();
@@ -95,4 +94,4 @@ var ckanrequest = {
             }
         });
     }
-}
+};

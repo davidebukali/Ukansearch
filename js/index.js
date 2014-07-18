@@ -11,7 +11,7 @@ var app = {
     bindEvents: function() {
         //clear textfield on select click
         $("#urlselect").bind('click', function(e) {
-            if ($(this).val() == "custom") {
+            if ($(this).val() === "custom") {
                 $("#url_inputs").show();
             } else {
                 $("#url_inputs").hide();
@@ -25,7 +25,7 @@ var app = {
                 ckanrequest.loadingMsg("Saved " + localStorage.appurl, 3000);
                 $.mobile.changePage("#page_search", "slide", true, false);
             } else {
-                if ($("#urlselect").val() != "select" && $("#urlselect").val() != "custom") {
+                if ($("#urlselect").val() !== "select" && $("#urlselect").val() !== "custom") {
                     var url = $("#urlselect").val();
                     switch (url) {
                         case 'ug':
@@ -53,11 +53,11 @@ var app = {
 
         $("#search_tags").keyup(function(e) {
             //listen for enter key
-            if (e.keyCode == 13) {
+            if (e.keyCode === 13) {
                 ckanrequest.loadingMsg("Please wait ... ", 0);
                 ckanrequest.checkUrl()
                     .then(function(result) {
-                        if (result['version'] != undefined && result['version'] != null) {
+                        if (result['version'] !== undefined && result['version'] !== null) {
                             controller.loadList();
                         }
                     })
@@ -75,7 +75,7 @@ var app = {
             if ($("#search_tags").val().length > 0) {
                 ckanrequest.checkUrl()
                     .then(function(result) {
-                        if (result['version'] != undefined && result['version'] != null) {
+                        if (result['version'] !== undefined && result['version'] !== null) {
                             controller.loadList();
                         }
                     })

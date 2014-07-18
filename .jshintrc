@@ -1,6 +1,8 @@
 {
     "predef": {
-        "ckanrequest": true
+        "controller": true,
+        "ckanrequest": true,
+        "Connection": true
     },
     "jquery": true,
     "curly": true,
