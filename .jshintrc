@@ -1,0 +1,19 @@
+{
+    "jquery": true,
+    "curly": true,
+    "strict": false,
+    "eqeqeq": true,
+    "immed": true,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "sub": true,
+    "undef": true,
+    "unused": false,
+    "onevar": true,
+    "eqnull": true,
+    "browser": true,
+    "devel": true,
+    "trailing": true,
+    "maxcomplexity": 4
+}
