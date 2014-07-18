@@ -1,4 +1,7 @@
 {
+    "predef": {
+        "ckanrequest": true
+    },
     "jquery": true,
     "curly": true,
     "strict": false,
@@ -14,6 +17,5 @@
     "eqnull": true,
     "browser": true,
     "devel": true,
-    "trailing": true,
     "maxcomplexity": 4
 }
