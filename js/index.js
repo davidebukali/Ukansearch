@@ -4,11 +4,38 @@ var app = {
     initialize: function() {
         this.bindEvents();
     },
+
+    getInstance: function(value) {
+        switch (value) {
+            case 'ug':
+                return {
+                    "url": "http://catalog.data.ug",
+                    "name": "UGANDA"
+                };
+
+            case 'uk':
+                return {
+                    "url": "http://data.gov.uk",
+                    "name": "UK"
+                };
+
+            case 'usa':
+                return {
+                    "url": "http://catalog.data.gov",
+                    "name": "USA"
+                };
+            default:
+                return {};
+        }
+    },
+
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
+        var me = this;
+
         //clear textfield on select click
         $("#urlselect").bind('click', function(e) {
             if ($(this).val() === "custom") {
@@ -24,30 +51,19 @@ var app = {
                 localStorage.appurl = $("#url_inputs").val();
                 ckanrequest.loadingMsg("Saved " + localStorage.appurl, 3000);
                 $.mobile.changePage("#page_search", "slide", true, false);
+                return;
+            }
+            if ($("#urlselect").val() !== "select" && $("#urlselect").val() !== "custom") {
+                var instance = me.getInstance($("#urlselect").val());
+                localStorage.appurl = instance.url;
+                ckanrequest.loadingMsg(
+                    "Saved + " + instance.name + " " + localStorage.appurl,
+                    3000
+                );
+
+                $.mobile.changePage("#page_search", "slide", true, false);
             } else {
-                if ($("#urlselect").val() !== "select" && $("#urlselect").val() !== "custom") {
-                    var url = $("#urlselect").val();
-                    switch (url) {
-                        case 'ug':
-                            localStorage.appurl = "http://catalog.data.ug";
-                            ckanrequest.loadingMsg("Saved UGANDA " + localStorage.appurl, 3000);
-                            break;
-
-                        case 'uk':
-                            localStorage.appurl = "http://data.gov.uk";
-                            ckanrequest.loadingMsg("Saved UK " + localStorage.appurl, 3000);
-                            break;
-
-                        case 'usa':
-                            localStorage.appurl = "http://catalog.data.gov";
-                            ckanrequest.loadingMsg("Saved USA " + localStorage.appurl, 3000);
-                            break;
-                    }
-
-                    $.mobile.changePage("#page_search", "slide", true, false);
-                } else {
-                    ckanrequest.loadingMsg("Select a URL", 3000);
-                }
+                ckanrequest.loadingMsg("Select a URL", 3000);
             }
         });
 
