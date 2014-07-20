@@ -1,0 +1,7 @@
+{
+    "preset": "jquery",
+    "validateQuoteMarks": null,
+    "validateIndentation": 4,
+    "requireDotNotation": null,
+    "requireMultipleVarDecl": null
+}

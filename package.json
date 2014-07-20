@@ -1,0 +1,25 @@
+{
+  "name": "Ukansearch",
+  "version": "0.0.0",
+  "description": "Ukansearch is a mobile client for CKAN",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "gulp-jscs": "^0.6.0",
+    "gulp-jshint": "^1.7.1",
+    "jshint-stylish": "^0.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidebukali/Ukansearch.git"
+  },
+  "author": "David Ebukali <debukal@gmail.com>",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/davidebukali/Ukansearch/issues"
+  },
+  "homepage": "https://github.com/davidebukali/Ukansearch"
+}

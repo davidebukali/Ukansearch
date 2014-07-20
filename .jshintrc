@@ -1,0 +1,23 @@
+{
+    "predef": {
+        "controller": true,
+        "ckanrequest": true,
+        "Connection": true
+    },
+    "jquery": true,
+    "curly": true,
+    "strict": false,
+    "eqeqeq": true,
+    "immed": true,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "sub": true,
+    "undef": true,
+    "unused": false,
+    "onevar": true,
+    "eqnull": true,
+    "browser": true,
+    "devel": true,
+    "maxcomplexity": 4
+}
