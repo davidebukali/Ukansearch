@@ -2,7 +2,10 @@
   "name": "Ukansearch",
   "version": "0.0.0",
   "description": "Ukansearch is a mobile client for CKAN",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.6.1",
+    "optimist": "^0.6.1"
+  },
   "devDependencies": {
     "gulp": "^3.8.6",
     "gulp-jscs": "^0.6.0",
