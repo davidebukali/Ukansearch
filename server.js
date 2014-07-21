@@ -3,7 +3,6 @@ var express = require('express'),
     app = express(),
     port = process.env.PORT || argv.p || argv.port || 80;
 
-
 app.use("/", express.static(__dirname));
 
 app.listen(port);
