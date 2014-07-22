@@ -18,3 +18,11 @@ npm install
 ```bash
 npm test
 ```
+
+## Node server
+
+To run UkanSearch using node, simply run the server:
+
+```bash
+node server.js -p <port>
+```
