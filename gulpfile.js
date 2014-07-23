@@ -17,10 +17,11 @@ gulp.task('lint', function() {
     return gulp.src(scripts)
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('jshint-stylish'))
+        .pipe(jshint.reporter('fail'))
         .pipe(jscs());
 });
 
-gulp.task('test', function() {
+gulp.task('test', [ 'lint' ], function() {
     var tests = [ 'test/test.frontend.js' ];
 
     var casperChild = spawn('casperjs', [ 'test' ].concat(tests));
