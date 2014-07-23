@@ -8,7 +8,7 @@ var spawn = require('child_process').spawn;
 var scripts = [
     './**/*.js',
     '!./node_modules/**/*.js',
-    '!./libs/**/*.js',
+    '!./bower_components/**/*.js',
     '!./plugins/**/*.js',
     '!./cordova*.js'
 ];
@@ -17,10 +17,11 @@ gulp.task('lint', function() {
     return gulp.src(scripts)
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('jshint-stylish'))
+        .pipe(jshint.reporter('fail'))
         .pipe(jscs());
 });
 
-gulp.task('test', function() {
+gulp.task('test', [ 'lint' ], function() {
     var tests = [ 'test/test.frontend.js' ];
 
     var casperChild = spawn('casperjs', [ 'test' ].concat(tests));
