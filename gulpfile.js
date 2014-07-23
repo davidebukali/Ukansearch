@@ -8,7 +8,7 @@ var spawn = require('child_process').spawn;
 var scripts = [
     './**/*.js',
     '!./node_modules/**/*.js',
-    '!./libs/**/*.js',
+    '!./bower_components/**/*.js',
     '!./plugins/**/*.js',
     '!./cordova*.js'
 ];
