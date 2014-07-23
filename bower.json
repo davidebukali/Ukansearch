@@ -1,0 +1,11 @@
+{
+  "name": "Ukansearch",
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery": "~1.10.2",
+    "jquery-mobile-bower": "~1.4.2",
+    "font-awesome": "~4.1.0",
+    "blockui": "*",
+    "chosen": "https://github.com/harvesthq/chosen/releases/download/v1.1.0/chosen_v1.1.0.zip"
+  }
+}

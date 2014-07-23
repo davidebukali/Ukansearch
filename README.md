@@ -7,8 +7,9 @@ Ukansearch currently allows searching by tags through datasets on the www.data.u
 For development install the dev dependencies (make sure to have node/npm installed before):
 
 ```bash
-npm install -g gulp casperjs
+npm install -g gulp casperjs bower
 npm install
+bower install
 ```
 
 ## Tests
